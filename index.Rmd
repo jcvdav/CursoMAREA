@@ -21,9 +21,9 @@ suppressPackageStartupMessages({
 
 # Temario
 
-Descripción del curso, incluyendo tiempos y actividades planeadas
+DescripciÃ³n del curso, incluyendo tiempos y actividades planeadas
 
-# Introducción
+# IntroducciÃ³n
 
 ## Vista general del curso
 
@@ -31,15 +31,15 @@ Descripción del curso, incluyendo tiempos y actividades planeadas
 
 # Objetivos e indicadores
 
-# Diseño experimental
+# DiseÃ±o experimental
 
 # Formato de los datos
 
-# Análisis
+# AnÃ¡lisis
 
 ## MAREA
 
-# Interpretación de resultados
+# InterpretaciÃ³n de resultados
 
 # Otros recursos
 
