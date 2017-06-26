@@ -1,0 +1,48 @@
+---
+title: "R Notebook"
+output: 
+  html_notebook: 
+    fig_caption: yes
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+bibliography: exported-references.bib
+---
+
+```{r}
+suppressPackageStartupMessages({
+  library(RefManageR)
+  library(knitr)
+  library(tidyverse)
+})
+```
+
+
+# Temario
+
+Descripción del curso, incluyendo tiempos y actividades planeadas
+
+# Introducción
+
+## Vista general del curso
+
+# Objetivos del curso
+
+# Objetivos e indicadores
+
+# Diseño experimental
+
+# Formato de los datos
+
+# Análisis
+
+## MAREA
+
+# Interpretación de resultados
+
+# Otros recursos
+
+# Referencias
+
+
