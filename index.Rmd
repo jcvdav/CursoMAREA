@@ -23,6 +23,32 @@ suppressPackageStartupMessages({
 
 Descripción del curso, incluyendo tiempos y actividades planeadas
 
+  - Introducción
+  
+  - Historia de la evaluación de RM
+  
+  - Objetivos e indicadores
+  
+  - Diseño experimental
+  
+  - Formato de datos
+    
+    - Hoja de datos en campos
+    
+    - Access sheet
+  
+  - Análisis
+  
+    - Regresión lineal
+    
+      - Principios de la RL
+    
+      - RL múltiple
+      
+    - Tabla de decisiónes de gobernanza
+    
+    - 
+
 # Introducción
 
 ## Vista general del curso
