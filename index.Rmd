@@ -1,7 +1,8 @@
 ---
-title: "R Notebook"
+title: "Evaluación de Reservas Marinas en México"
+author: "Juan Carlos Villaseñor-Derbez"
 output: 
-  html_document:
+  html_notebook:
     fig_caption: yes
     toc: true
     toc_float:
@@ -18,6 +19,7 @@ suppressPackageStartupMessages({
 })
 ```
 
+___
 
 # Temario
 
@@ -48,27 +50,9 @@ Descripción del curso, incluyendo tiempos y actividades planeadas
     - Tabla de decisiónes de gobernanza
     
     - 
+    
+___
 
-# Introducción
 
-## Vista general del curso
-
-# Objetivos del curso
-
-# Objetivos e indicadores
-
-# Diseño experimental
-
-# Formato de los datos
-
-# Análisis
-
-## MAREA
-
-# Interpretación de resultados
-
-# Otros recursos
-
-# Referencias
 
 
