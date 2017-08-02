@@ -43,8 +43,8 @@ La gran veriedad de nomenclaturas y nombres legales bajo los que se implementan 
 - [Diapositivas](./bloque1.html)
 - Literatura recomendada:
     - Sistemas de clasificación de AMP [@hortaecosta_2016-_3; @iucn_website_2017-Bg]
-    - Beneficios de las AMP [@aburtooropeza_2011-ya; @lester_2009-Ks; @micheli_2012-EU;@munguavega_2015-yg]
-    - Beneficios de RM sobre AMP [@lester_2008-F_]
+    - Beneficios de las AMP [@aburtooropeza_2011-ya; @lester_2009-Ks]
+    - Beneficios de RM sobre AMP [@lester_2008-F_; @micheli_2012-EU; @munguavega_2015-yg]
 
 
 ### Historia de la evaluación de RM (30 - 45 min)
