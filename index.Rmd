@@ -1,58 +1,116 @@
 ---
-title: "Evaluación de Reservas Marinas en México"
+title: "Métodos desarrollados para la evaluación de la efectividad de reservas marinas mediante el uso de MAREA"
 author: "Juan Carlos Villaseñor-Derbez"
 output: 
   html_notebook:
+    code_folding: hide
     fig_caption: yes
-    toc: true
+    toc: yes
     toc_float:
-      collapsed: false
-      smooth_scroll: false
+      collapsed: no
+      smooth_scroll: no
 bibliography: exported-references.bib
+csl: peerj.csl
 ---
 
-```{r}
-suppressPackageStartupMessages({
-  library(RefManageR)
-  library(knitr)
-  library(tidyverse)
-})
+jvillasenor@bren.ucsb.edu
+
+
+```{r formato, include=FALSE}
+knitr::opts_chunk$set(echo = F)
 ```
 
-___
+# Antes de empezar
+
+## Objetivo del curso
+
+Al concluir el curso, los participantes podrán realizar la evaluación de Reservas Marinas con MAREA. Aunque el curso está diseñado para realizar la evaluación con MAREA, se presentarán las bases teóricas y ejemplos prácticos para comprender a fondo la evaluación. A lo largo del curso, usaremos trabajos publicados en revistas arbitradas como ejemplos de buenas y malas prácticas. Todas las presentaciones, datos y artículos utilizados en este curso están disponibles en el [repositorio del curso](https://github.com/jcvdav/CursoMAREA), y en los enlaces disponibles en cada sección.
+
+Las preguntas y discusiones son bienvenidas a lo largo de todo el curso, siemrpe y cuando el tiempo lo permita.
 
 # Temario
 
-Descripción del curso, incluyendo tiempos y actividades planeadas
+A continuación se presenta el temario del curso, incluyendo los tiempos estimados para las secciones/actividades planeadas. El curso será una combinación de teoría y práctica. La dinámica general será presentar los conceptos y acompañarlos de ejercicios que permitan entenderlos mejor. Para esto, se espera que los asistentes cuenten con acceso a una computadora con Excel, o papel, lápiz y calculadora. Realizaremos operaciones básicas (suma, resta, multiplicación y división).
 
-  - Introducción
-  
-  - Historia de la evaluación de RM
-  
-  - Objetivos e indicadores
-  
-  - Diseño experimental
-  
-  - Formato de datos
+## Introducción
+
+### Áreas Marinas Protegidas y Reservas Marinas (30 - 45 min)
     
-    - Hoja de datos en campos
-    
-    - Access sheet
-  
-  - Análisis
-  
-    - Regresión lineal
-    
-      - Principios de la RL
-    
-      - RL múltiple
-      
-    - Tabla de decisiónes de gobernanza
-    
-    - 
-    
-___
+La gran veriedad de nomenclaturas y nombres legales bajo los que se implementan Áreas Marinas Protegidas (AMP) suele ser una fuente de confusión. Se presentarán dos sistemas de clasificación de AMP, con enfoque especial a las Reservas Marinas (RM). Utilizando ejemplos de los tres marcos legales bajo los cuales se establecen RM en México (*i.e.* zonas núcleo, reservas comunitarias y zonas de refugio pesquero), los participantes del curso realizarán una rápida categorización de las zonas.
+
+**Recursos**
+
+- [Diapositivas]()
+- Literatura recomendada:
+    - Sistemas de clasificación de AMP [@hortaecosta_2016-_3; @iucn_website_2017-Bg]
+    - Beneficios de las AMP [@aburtooropeza_2011-ya; @lester_2009-Ks; @micheli_2012-EU;@munguavega_2015-yg]
+    - Beneficios de RM sobre AMP [@lester_2008-F_]
 
 
+### Historia de la evaluación de RM (30 - 45 min)
+    
+La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, será útil hacer una recapitulación de indicadores y metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Se presentarán casos publicados en literatura científica como ejemploenfocándonos en los indicadores y diseños de muestreo. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de RM y otros impactos ecológicos. Por medio de ejercicios prácticos, identificaremos las ventajas y desventajas de cada uno, así como sus implicaciones en el manejo. Una discusión grupal motivará la necesidad de alinear objetivos de manejo con indicadores y el uso apropiado de análisis que permitan informar el manjo de las reservas.
 
+**Recursos**
+
+- [Diapositivas]()
+- Literatura recomendada:
+    - Otras formas de evaluar RM [@pomeroy_2005-Py; @pomeroy_2004-23; @mascia_2017-m_]
+    - Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
+    - Evaluación Antes-Después [@betti_2017-lq]
+    - Evaluación Control-Impacto / Dentro-Fuera [@guidetti_2014-8Z; @friedlander_2017-oI; @lester_2009-Ks; @aburtooropeza_2011-ya; @rodriguez_2017-PD]
+    - Evaluación Antes-Después-Control-Impacto [@moland_2013-VP; @soykan_2015-nu; @lester_2009-Ks]
+    - Importancia del Contrafactual [@davies_2017-ml]
+
+## Evaluación de Reservas Marinas
+
+### Objetivos e indicadores (30 - 45 min)
+    
+Habiendo repasado las metodologías comúnmente utilizadas en ecología, daremos un paso atrás para pensar en el manejo. Hablaremos de la identificación de objetivos para los cuales las reservas son establecidas y de los indicadores que pueden utilizarse para medir su impacto. Se presentarán los indicadores en las tres principales categorías *Biofísicos* *Socioeconómicos* y de *Gobernanza* y daremos un espacio para el diálogo y discusión sobre otros indicadores.
+
+**Recursos**
+
+- [Diapositivas]()
+- Literatura recomendada:
+    - Revisiones sistemáticas de indicadores [@lester_2009-Ks; @woodcock_2017-Wm].
+
+### Datos y formato de datos (30 - 45 min)
+    
+Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto. Se presentarán los conceptos de datos *largos* y *anchos*, y discutiremos sobre las ventajas de cada uno. Usaremos bases en ambos formatos para identificar las ventajas / desventajas de cada una y justificaremos el uso de datos *largos* en MAREA. Hablaremos sobre buenas prácticas de mantenimiento de bases de datos, nombres de columnas y metadatos. Terminaremos hablando de las extensiones (*e.g.* \*.csv) en las que se pueden exportar los datos / importar datos desde Excel.
+
+**Recursos**
+
+- [Diapositivas]()
+- [Carpeta de dropbox]() con los datos
+
+### Análisis (~ 60 min)
+    
+Los participantes recibirán una breve introducción a la regresión lineal y el concepto de los "Contrafactuales". Con datos simplificados, los participantes calcularán "a mano" el efecto (o impacto) de una intervención de manejo. Esto nos permitirá deducir el modelo de Diferencia-en-Diferencias utilizado en la evaluación de los indicadores biofísicos. Se presentarán también el modelo lineal utilizado para evaluar indicadores socioeconómicos y la tabla de decisiones para los indicadores de gobernanza. Los participantes tendrán la oportunidad de usar estas herramientas "a mano" antes de utilizar MAREA.
+
+**Recursos**
+
+- [Diapositivas]()
+- [Carpeta de dropbox]() con los datos
+
+### Uso de MAREA (30 - 45 min)
+    
+Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoceremos los datos y análisis, por lo que no nos limitaremos a aprender su uso, sino comprender las operaciones y procesos que realiza. Esto permitirá anticipar errores y comprender las capacidades y limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla Natividad como ejemplo para llevar a cabo la evaluación de la reserva de "La Plana / Las Cuevas".
+
+**Recursos**
+
+- [Diapositivas]()
+- [Carpeta de dropbox]() con los datos
+- [Link a MAREA](turfeffect.shinyapps.io/MAREA)
+
+### Interpretación de resultados (~ 45 min)
+    
+Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produc MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
+
+**Recursos**
+
+- [Diapositivas]()
+    
+# Resumen (~ 15 min)
+
+# Referencias
 
