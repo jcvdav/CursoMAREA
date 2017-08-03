@@ -5,9 +5,34 @@ author: "Villaseñor-Derbez, J.C."
 date: "28 de agosto de 2017"
 output:
   ioslides_presentation:
-    incremental: true
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
 bibliography: exported-references.bib
 ---
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 1: AMPs y RMs');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -27,17 +52,31 @@ suppressPackageStartupMessages({
 
 - Beneficios de RM
 
-## Áreas Marinas Protegidas (AMP)
+## Áreas Marinas Protegidas (AMP)  {.smaller}
 
 - Manejo espacial de actividades humanas (*e.g.* pesca, petróleo, turismo...)
-- Herramientas para incrementar resiliencia, conservar biodiversidad, sistemas ecosistémicos
 - Evidencia de incrementos en algunos indicadores
+    - Biomasa [@aburtooropeza_2011-ya; @lester_2009-Ks]
+    - Densidad [@lester_2008-F_]
+    - Resiliencia [@micheli_2012-EU]
+    - Preservan diversidad genética [@munguavega_2015-yg]
+    - ¿Beneficios a pesquerías?
 
 <center>![](./Figs/B1/BeneficiosAMPsLester.png)</center>
 
-## ¿Por qué no funcionan?
+## Gran discusión sobre su (falta de) efectividad pero ¿Por qué no funcionan?
 
-*¡Muchos de estos resultados vienen de Reservas Marinas!*
+- Respuestas clásicas:
+    - Vigilancia
+    - Fondos
+    - Tamaño
+    - Diseño
+    - Tiempo
+1. Muchos de los casos positivos vienen de Reservas Marinas (zonas de no pesca)
+2. Estudios sin control apropiado
+3. Tendemos a evaluar objetivos, no intervenciones
+
+# Primer paso: Hablar de lo mismo
 
 ## Categorización de AMPs
 
@@ -53,11 +92,12 @@ suppressPackageStartupMessages({
 
 # Categorización de la IUCN
 
-## Características
+## Características {.larger}
 
 - Enfocada en objetivos de manejo
 - Reconocidas por la ONU y muchos paises
 - Incorporadas en legislación
+- Describe toda la AMP (no toma en cuenta zonificación)
 - [Existen 7 categorías](https://www.iucn.org/es/node/26266)
 
 ## Categorias
@@ -65,43 +105,110 @@ suppressPackageStartupMessages({
 - Ia Reserva Natural Estricta
 - Ib Área de Vida Salvaje
 - II Parque Nacional
-- III Monumento Característica Natural
+- III Monumento Natural
 - IV Área de Manejo de Hábitat / Especie
 - V Paisaje Protegido
 - VI Área protegida con uso adecuado de recursos naturales
 
-## Categorias
+## Categorias{.small}
 
 ```{r}
 read.csv("Tabs/B1/IUCNChars.csv") %>% 
   knitr::kable()
 ```
 
-## Desventajas con IUCN
+## Desventajas
 
-- Fronteras / diferencias entre tipos no están muy claras
+- Diferencias entre tipos no están muy claras
     - *e.g.* V vs VI
 - Enfocadas en objetivos de manejo
     - Comúnmente objetivos de manejo no se alínean con las regulaciones
 - Clasifican el AMP entera, ignorando zonificación
-- Al evaluar efectividad, estamos evaluando objetivos, no intervenciones (no es lógico).
+- En meta-análisis evaluamos (erróneamente) los objetivos, no intervenciones.
 
 # Categorización de @hortaecosta_2016-_3
 
 ## Categorización de @hortaecosta_2016-_3
 
-- Enfoque en regulaciones
-- 
+- 8 clases de **zonas** y 5 clases de **AMP**
+- Clase de AMP depende de clases de zonas
+- Enfoque en regulaciones (usos permitidos)
+- Sistema de "árbol de decisiónes"
+- Cuantitativo
+- Específico a las zonas
+- Cálculo del "MPAindex"
 
-# Ejemplos
+## Clases de zona
 
-## Parque Nacional Cabo Pulmo
+1. No pesca / No acceso
+2. No pesca / Acceso regulado
+3. No pesca / Acceso no regulado
+4. Extracción altamente regulada
+5. Extracción moderadamente regulada
+6. Extracción poco regulada
+7. Extracción muy poco regulada
+8. Extracción no regulada
 
-## Reserva de la Biósfera del Caribe
+## Categorización cuantitativa
 
-## 
+<center>
+[![](./Figs/B1/HortaTreeSmall.jpg)](./Figs/B1/HortaTree.jpg) [![](./Figs/B1/HortaUsesSmall.jpg)](./Figs/B1/HortaUses.jpg)
+</center>
+
+## Clases de AMP
+
+- Se categorizan según el MPAindex como:
+    1. Completamente protegida (1-3)
+    2. Altamente protegida (3-5)
+    3. Moderadamente protegida (5-6)
+    4. Poco protegida (6-7)
+    5. No protegida (7-8)
+
+## MPAindex
+
+<center>
+[![](./Figs/B1/HortaMPAismall.jpg)](./Figs/B1/HortaMPAi.jpg)
+</center>
+
+# Ejemplo: Parque Nacional Cabo Pulmo
+
+## Con IUCN
+
+- 7,111 ha totales 
+- 7,094.8 ha sin SUP (terrestre)
+
+- IUCN:
+    - Oficialmente Categoría II (Parque Nacional)
+    - Pero sub-zonas tendrían diferentes categorías:
+        - actividades de restauración e historia de explotación indicarían IV, V, VI...
+
+## Con MPAindex [@hortaecosta_2016-_3]
+
+$$\sum_{i = 1}^{n}Clase_i\times\frac{Area_i}{AreaAMP}$$
+
+```{r}
+read.csv("Tabs/B1/PNCPindex.csv") %>% 
+  knitr::kable(col.names = c("Zona", "Extensión", "Artes de pesca", "Puntaje más alto AP", "Acuacultura y fondo", "Embarcaciones", "Clase Zona", "Clase*(Area/AreaAMP)"), digits = 2)
+```
+
+## PNCP es Área completamente protegida
+
+![](Figs/B1/MPAiClass.jpg)
+
+## Utilidad
+
+- Informar manejo:
+
+```{r, fig.height = 3, fig.width = 4, fig.align = "center"}
+ggplot(mtcars, aes(x = hp/50, y = mpg/10)) +
+  theme_bw() +
+  labs(x = "MPAindex", y = "Efecto en Biomasa") +
+  geom_smooth(method = "loess", color = "black", linetype = "dashed") +
+  geom_point(size = 2)
+```
+
+- Forma cuantitativa de clasificar AMPs
+- Permite comparar entre AMPs
 
 ## Referencias
-
-The current IUCN categorisation of MPAs is based on management objectives which many times have a signi fi cant mismatch to regulations causing a strong uncertainty when evaluating global MPAs effectiveness. A
 
