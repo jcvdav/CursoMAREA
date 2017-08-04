@@ -101,7 +101,7 @@ Antes-Después-Dentro-Fuera
 - Usan biomasa de peces pra medir el efecto
 - Controles son: *"similar adjacent unprotected habitats"*
 
-## Evaluación Dentro-Fuera
+## Evaluación Dentro-Fuera {.smaller}
 
 **Resultados**
 <center>
@@ -158,6 +158,8 @@ Reflexiones
 ## @mascia_2017-m_
 
 ## Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
+
+## Referencias
 
 
 
