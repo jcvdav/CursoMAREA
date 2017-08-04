@@ -24,42 +24,43 @@ knitr::opts_chunk$set(echo = F)
 
 ## Objetivo del curso
 
-Al concluir el curso, los participantes podrán realizar la evaluación de Reservas Marinas con MAREA. Aunque el curso está diseñado para realizar la evaluación con MAREA, se presentarán las bases teóricas y ejemplos prácticos para comprender a fondo la evaluación. A lo largo del curso, usaremos trabajos publicados en revistas arbitradas como ejemplos de buenas y malas prácticas. Todas las presentaciones, datos y artículos utilizados en este curso están disponibles en el [repositorio del curso](https://github.com/jcvdav/CursoMAREA), y en los enlaces disponibles en cada sección.
+Al concluir el curso, los participantes podrán realizar la evaluación de Reservas Marinas con MAREA. Aunque el curso está diseñado para realizar la evaluación con MAREA, se presentarán las bases teóricas y ejemplos prácticos para comprender a fondo la evaluación. A lo largo del curso, usaremos trabajos publicados en revistas arbitradas como ejemplos. Todas las presentaciones y datos utilizados en este curso están disponibles en el [repositorio del curso](https://github.com/jcvdav/CursoMAREA), y en los enlaces disponibles en cada sección.
 
-Las preguntas y discusiones son bienvenidas a lo largo de todo el curso, siemrpe y cuando el tiempo lo permita.
+Las preguntas y discusiones son bienvenidas a lo largo de todo el curso.
 
 # Temario
 
-A continuación se presenta el temario del curso, incluyendo los tiempos estimados para las secciones/actividades planeadas. El curso será una combinación de teoría y práctica. La dinámica general será presentar los conceptos y acompañarlos de ejercicios que permitan entenderlos mejor. Para esto, se espera que los asistentes cuenten con acceso a una computadora con Excel, o papel, lápiz y calculadora. Realizaremos operaciones básicas (suma, resta, multiplicación y división).
+A continuación se presenta el temario del curso, incluyendo los tiempos estimados para las secciones. El curso será una combinación de teoría y práctica. La dinámica general consistirá en presentar los conceptos y acompañarlos con ejemplos que permitan entenderlos mejor.
 
 ## Introducción
 
-### Áreas Marinas Protegidas y Reservas Marinas (30 - 45 min)
+### Áreas Marinas Protegidas y Reservas Marinas
+
+*no será parte del curso*
     
 La gran veriedad de nomenclaturas y nombres legales bajo los que se implementan Áreas Marinas Protegidas (AMP) suele ser una fuente de confusión. Se presentarán dos sistemas de clasificación de AMP, con enfoque especial a las Reservas Marinas (RM). Utilizando ejemplos de los tres marcos legales bajo los cuales se establecen RM en México (*i.e.* zonas núcleo, reservas comunitarias y zonas de refugio pesquero), los participantes del curso realizarán una rápida categorización de las zonas.
 
 **Recursos**
 
-- [Diapositivas](./bloque1.html)
+- [Diapositivas](./bloque0.html)
 - Literatura recomendada:
     - Sistemas de clasificación de AMP [@hortaecosta_2016-_3; @iucn_website_2017-Bg]
-    - Beneficios de las AMP [@aburtooropeza_2011-ya; @lester_2009-Ks]
-    - Beneficios de RM sobre AMP [@lester_2008-F_; @micheli_2012-EU; @munguavega_2015-yg]
+    - Beneficios de las AMP y RM [@lester_2009-Ks; @lester_2008-F_; @roberts_2017-J9]
 
 
 ### Historia de la evaluación de RM (30 - 45 min)
     
-La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, será útil hacer una recapitulación de indicadores y metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Se presentarán casos publicados en literatura científica como ejemploenfocándonos en los indicadores y diseños de muestreo. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de RM y otros impactos ecológicos. Por medio de ejercicios prácticos, identificaremos las ventajas y desventajas de cada uno, así como sus implicaciones en el manejo. Una discusión grupal motivará la necesidad de alinear objetivos de manejo con indicadores y el uso apropiado de análisis que permitan informar el manjo de las reservas.
+La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, será útil hacer una recapitulación de indicadores y metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Se presentarán casos publicados en literatura científica como ejemplo, enfocándonos en los indicadores y diseños de muestreo. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de RM y otros impactos ecológicos. Por medio de ejemplos prácticos, identificaremos las ventajas y desventajas de cada uno, así como sus implicaciones en el manejo. Una discusión grupal motivará la necesidad de alinear objetivos de manejo con indicadores y el uso apropiado de análisis que permitan informar el manjo de las reservas.
 
 **Recursos**
 
-- [Diapositivas]()
+- [Diapositivas](./bloque1.html)
 - Literatura recomendada:
-    - Otras formas de evaluar RM [@pomeroy_2005-Py; @pomeroy_2004-23; @mascia_2017-m_]
-    - Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
-    - Evaluación Antes-Después [@betti_2017-lq]
-    - Evaluación Control-Impacto / Dentro-Fuera [@guidetti_2014-8Z; @friedlander_2017-oI; @lester_2009-Ks; @aburtooropeza_2011-ya; @rodriguez_2017-PD]
+    - Evaluación Antes-Después [@wantiez_1997-VH]
+    - Evaluación Dentro-Fuera [@guidetti_2014-8Z; @friedlander_2017-oI; @lester_2009-Ks; @aburtooropeza_2011-ya; @rodriguez_2017-PD]
     - Evaluación Antes-Después-Control-Impacto [@moland_2013-VP; @soykan_2015-nu; @lester_2009-Ks]
+    - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
+    - Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
     - Importancia del Contrafactual [@davies_2017-ml]
 
 ## Evaluación de Reservas Marinas
