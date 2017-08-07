@@ -50,7 +50,7 @@ La gran veriedad de nomenclaturas y nombres legales bajo los que se implementan 
 
 ### Historia de la evaluación de RM (30 - 45 min)
     
-La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, será útil hacer una recapitulación de indicadores y metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Se presentarán casos publicados en literatura científica como ejemplo, enfocándonos en los indicadores y diseños de muestreo. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de RM y otros impactos ecológicos. Por medio de ejemplos prácticos, identificaremos las ventajas y desventajas de cada uno, así como sus implicaciones en el manejo. Una discusión grupal motivará la necesidad de alinear objetivos de manejo con indicadores y el uso apropiado de análisis que permitan informar el manjo de las reservas.
+La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, será útil hacer una recapitulación de metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Se presentarán casos publicados en literatura científica como ejemplo, enfocándonos en los indicadores y diseños de muestreo. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de RM y otros impactos ecológicos. Por medio de ejemplos prácticos, identificaremos las ventajas y desventajas de cada uno, así como sus implicaciones en el manejo. Una discusión grupal motivará la necesidad de alinear objetivos de manejo con indicadores y el uso apropiado de análisis que permitan informar el manjo de las reservas.
 
 **Recursos**
 
@@ -59,11 +59,19 @@ La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han e
     - Evaluación Antes-Después [@wantiez_1997-VH]
     - Evaluación Dentro-Fuera [@guidetti_2014-8Z; @friedlander_2017-oI; @lester_2009-Ks; @aburtooropeza_2011-ya; @rodriguez_2017-PD]
     - Evaluación Antes-Después-Control-Impacto [@moland_2013-VP; @soykan_2015-nu; @lester_2009-Ks]
-    - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
     - Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
     - Importancia del Contrafactual [@davies_2017-ml]
 
 ## Evaluación de Reservas Marinas
+
+### Antecedentes (10 min)
+
+Hablaremos sobre algunos de los trabajos que han creado metodologías y sugerencias para evaluar AMPs. Esto servirá como motivación de la necesidad de una aproximación que permita relacionar objetivos con indicadores, así como la relevancia de una herramienta que realice el análisis.
+
+** Recursos **
+- [Diapositivas](./bloque2.html)
+- Literatura recomendada:
+    - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
 
 ### Objetivos e indicadores (30 - 45 min)
     
@@ -73,7 +81,7 @@ Habiendo repasado las metodologías comúnmente utilizadas en ecología, daremos
 
 - [Diapositivas]()
 - Literatura recomendada:
-    - Revisiones sistemáticas de indicadores [@lester_2009-Ks; @woodcock_2017-Wm].
+    - Revisión sistemáticas de indicadores [@woodcock_2017-Wm].
 
 ### Datos y formato de datos (30 - 45 min)
     
