@@ -18,21 +18,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Temas
 
-# Indicadores comunes
-
-## Indicadores comunes
-
-- Biológicos
-
-- Socioeconómicos
-
-- Gobernanza
-
-# Diseños de muestreo
-
-Antes-Después   
-Dentro-Fuera    
-Antes-Después-Dentro-Fuera
+- Problemas en el diseño experimental de reservas
+- Evaluación Antes-Después
+- Evaluación Dentro-Fuera
+- Evaluación Antes-Después-Dentro-Fuera
+- Ejemplos
 
 ## Experimentos aleatorios controlados
 
@@ -41,9 +31,8 @@ Antes-Después-Dentro-Fuera
     - Conectividad
     - Productividad
     - Heterogeneidad de hábitat
-
 - Hay que ser cuidadosos al evaluar reservas, pues podemos malinformar
-- Los siguientes ejemplos **no** son malos estudios, **nuestra** interpretación es mala
+- Los siguientes ejemplos **no** son malos estudios, nuestra interpretación es mala
 
 ## Evaluación Antes-Después
 
@@ -76,11 +65,10 @@ Antes-Después-Dentro-Fuera
 **Reflexiones**
 
 - **Sí hay un cambio** pero...
-    - es a través del tiempo (*i.e.* sí hay más después de 4 años)
-    - no hay **evidencia** de que sea por efecto de la reserva
-    - El análisis prueba la hipótesis $H_0: \mu_1-\mu_2 = 0$
+    - El análisis rechaza $H_0: \mu_1-\mu_2 = 0$
+    - No hay **evidencia** de que sea por efecto de la reserva
     - Tendemos a asumir que hay una relación causal
-- No toma en cuenta otras intervenciones
+- No toma en cuenta otras intervenciones (*e.g.* mejor manejo pesquero en general)
 - El ambiente entero se pudo haber hecho más productivo [@szuwalski_2017-jc]
 - Interpretación (errónea): Implementar una reserva incrementa la biomasa en 246%
 
@@ -113,51 +101,195 @@ Antes-Después-Dentro-Fuera
 
 ## Evaluación Dentro-Fuera
 
-Reflexiones
+**Reflexiones**
 
+- No es un experimento controlado (las reservas se pusieron ahí por una razón)
+    - ¿Zonas nauralmente productivas?
+    - ¿Zonas con alto reclutamiento / conectividad?
 - Existen diferencias entre RM y Control
     - Se rechaza $H_0: \mu_1-\mu_2 = 0$
-- Las especies no pescadas no responden al tratamiento
-- Mejor aproximación que antes-después, pero aún no podemos inferir causalidad
-- No es un experimento controlado (las reservas se pusieron ahí por una razón)
+    - ¿Reserva subió o control bajó?
+- En su defensa:
+    - Las especies no pescadas no responden al tratamiento
+    - Mejor aproximación que antes-después, pero aún no podemos inferir causalidad
 
 ## Evaluación Antes-Después-Control-Impacto
 
-Características
+**Características**
+
+- Demandante en datos:
+    - Datos de línea base
+    - Datos para reserva y control
+- Asumimos que:
+    - Reserva y control tenían la misma probabilidad de haber sido reserva
+    - Tendencias paralelas previo a implementación
+- Nos permite estimar el efecto neto de la reserva
 
 ## Evaluación Antes-Después-Control-Impacto
 
-Ejemplo
+**Ejemplo:** @moland_2013-VP
 
-## Evaluación Antes-Después-Control-Impacto
+- RM en Noruega
+- Diseñadas para bacalao y langosta
+- Diseño muestreal BACI
+- Usan modelo de diferencia en diferencias
+- Muestreo "pesquero", utilizan CPUE como indicador
 
-Ejemplo en RM
+## Evaluación Antes-Después-Control-Impacto {.smaller}
 
-[@moland_2013-VP; @soykan_2015-nu; @lester_2009-Ks]
-
-## Evaluación Antes-Después-Control-Impacto
-
-Resultados
-
-## Evaluación Antes-Después-Control-Impacto
-
-Reflexiones
-
-## Importancia del Contrafactual [@davies_2017-ml]
-
-# Marcos para evaluar reservas
-
-## Trabajos anteriores
+**Resultados**
 
 <center>
-![@pomeroy_2005-Py](Figs/B1/IUCN.png) ![@mascia_2017-m_](Figs/B1/Mascia.PNG)
+![](./Figs/B1/BACI.png)
 </center>
 
-## IUCN
+- "*The effect of [time] depended on treatment and that population development was different between treatments*"
+- "*By 2010, the mean relative CPUE had increased by 245 percent in MPAs, whereas mean relative CPUE in control areas had increased by 87 per cent*"
 
-## @mascia_2017-m_
+## Evaluación Antes-Después-Control-Impacto
 
-## Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
+**Reflexiones**
+
+- Diferencia entre incremento en reserva (245%) e incremento en control (87%) nos da el efecto **real** de la reserva:
+- $\Delta_r - \Delta_c = Efecto$
+- $245 - 87 = `r 245-87`$
+
+# Ejemplo de las tres metodologías
+
+## Ejemplo {.smaller}
+
+Supongamos:
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+df <- data.frame(Zona = c("Control", "Reserva"), Antes = c(2, 4), Despues = c(4, 9), stringsAsFactors = F)
+
+knitr::kable(df,
+             format = "html",
+             col.names = c("Zona", "Antes", "Después")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+<center>
+```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+df2 <- data.frame(Tiempo = c("Antes", "Despues"), Ano = c(1, 2), stringsAsFactors = F)
+
+gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona)) +
+  geom_line(size = 2) +
+  geom_point(size = 4) +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = c(0.01, 0.01))
+```
+</center>
+
+## Ejemplo {.smaller}
+
+**Antes-Después**
+
+```{r}
+df%>% 
+  cbind(AD = c(NA, 5)) %>% 
+  knitr::kable(format = "html",
+             col.names = c("Zona", "Antes", "Después", "Cambio")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+<center>
+```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Zona)) +
+  geom_line(size = 2) +
+  geom_point(size = 4) +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.position = "None")
+```
+</center>
+
+## Ejemplo {.smaller}
+
+**Dentro-Fuera**
+
+```{r}
+
+df%>% 
+  rbind(data.frame(Zona = "Cambio", Antes = NA, Despues = 5)) %>%
+  knitr::kable(format = "html",
+             col.names = c("Zona", "Antes", "Después")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+<center>
+```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Tiempo)) +
+  geom_point(size = 4) +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.position = "None")
+```
+</center>
+
+## Ejemplo {.smaller}
+
+**Antes-Después-Control-Impacto**
+
+```{r}
+df%>% 
+  cbind(AD = c(2, 5)) %>% 
+  rbind(data.frame(Zona = "Cambio", Antes = 2, Despues = 5, AD = 3)) %>%
+  knitr::kable(format = "html",
+             col.names = c("Zona", "Antes", "Después", "Cambio")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+<center>
+```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+rbind(df, data.frame(Zona = "Z", Antes = 4, Despues = 6)) %>% 
+  gather(Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Zona)) +
+  geom_line(size = 2, aes(linetype = Zona)) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  scale_linetype_manual(values=c("solid", "solid", "dashed")) +
+  scale_color_manual(values = c("blue", "red", "red")) +
+  scale_alpha_manual(values = c(1, 1, 0.5))
+```
+</center>
 
 ## Referencias
 
