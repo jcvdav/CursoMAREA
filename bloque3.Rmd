@@ -1,0 +1,29 @@
+---
+title: "Bloque 3"
+subtitle: "Objetivos e indicadores"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+# Indicadores comunes
+
+## Indicadores comunes
+
+- Biológicos
+
+- Socioeconómicos
+
+- Gobernanza

@@ -1,0 +1,34 @@
+---
+title: "Bloque 2"
+subtitle: "Guías para la evaluación de RM"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Temas
+
+# Marcos para evaluar reservas
+
+## Trabajos anteriores
+
+<center>
+![@pomeroy_2005-Py](Figs/B1/IUCN.png) ![@mascia_2017-m_](Figs/B1/Mascia.PNG)
+</center>
+
+## IUCN
+
+## @mascia_2017-m_
+
+## Importancia de incorporar dimensiones socioeconómicas y de gobernanza [@basurto_2013-oq; @basurto_2012-Mz]
+
