@@ -52,7 +52,6 @@ suppressPackageStartupMessages({
     - Según sus reglas
     - Ejemplo con Cabo Pulmo
 
-
 ## Áreas Marinas Protegidas (AMP)  {.smaller}
 
 - Manejo espacial de actividades humanas (*e.g.* pesca, petróleo, turismo...)
