@@ -1,6 +1,6 @@
 ---
 title: "Bloque 3"
-subtitle: "Objetivos e indicadores"
+subtitle: "Datos y formato de datos"
 author: "Villaseñor-Derbez, J.C."
 date: "Septiembre, 2017"
 output:
@@ -18,12 +18,3 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-# Indicadores comunes
-
-## Indicadores comunes
-
-- Biológicos
-
-- Socioeconómicos
-
-- Gobernanza

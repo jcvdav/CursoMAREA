@@ -99,6 +99,28 @@
           </hgroup>
   </slide>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 1: Historia de evaluación');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
 <slide class=''><hgroup><h2>Temas</h2></hgroup><article  id="temas">
 
 <ul class = 'build'>

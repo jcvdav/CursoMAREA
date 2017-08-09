@@ -64,23 +64,15 @@ La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han e
 
 ## Evaluación de Reservas Marinas
 
-### Antecedentes (10 min)
-
-Hablaremos sobre algunos de los trabajos que han creado metodologías y sugerencias para evaluar AMPs. Esto servirá como motivación de la necesidad de una aproximación que permita relacionar objetivos con indicadores, así como la relevancia de una herramienta que realice el análisis.
-
-** Recursos **
-- [Diapositivas](./bloque2.html)
-- Literatura recomendada:
-    - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
-
 ### Objetivos e indicadores (30 - 45 min)
     
-Habiendo repasado las metodologías comúnmente utilizadas en ecología, daremos un paso atrás para pensar en el manejo. Hablaremos de la identificación de objetivos para los cuales las reservas son establecidas y de los indicadores que pueden utilizarse para medir su impacto. Se presentarán los indicadores en las tres principales categorías *Biofísicos* *Socioeconómicos* y de *Gobernanza* y daremos un espacio para el diálogo y discusión sobre otros indicadores.
+Hablaremos sobre algunos de los trabajos que han creado metodologías y sugerencias para evaluar AMPs. Esto servirá como motivación de la necesidad de una aproximación que permita relacionar objetivos con indicadores, así como la relevancia de una herramienta que realice el análisis. Hablaremos de la identificación de objetivos para los cuales las reservas son establecidas y de los indicadores que pueden utilizarse para medir su impacto. Se presentarán los indicadores en las tres principales categorías *Biofísicos* *Socioeconómicos* y de *Gobernanza* y daremos un espacio para el diálogo y discusión sobre otros indicadores.
 
 **Recursos**
 
-- [Diapositivas]()
+- [Diapositivas](./bloque2.html)
 - Literatura recomendada:
+    - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
     - Revisión sistemáticas de indicadores [@woodcock_2017-Wm].
 
 ### Datos y formato de datos (30 - 45 min)
@@ -89,7 +81,7 @@ Para poder usar MAREA sin problemas, es necesario que los datos tengan el format
 
 **Recursos**
 
-- [Diapositivas]()
+- [Diapositivas](./bloque3.html)
 - [Carpeta de dropbox]() con los datos
 
 ### Análisis (~ 60 min)
@@ -98,7 +90,7 @@ Los participantes recibirán una breve introducción a la regresión lineal y el
 
 **Recursos**
 
-- [Diapositivas]()
+- [Diapositivas](./bloque4.html)
 - [Carpeta de dropbox]() con los datos
 
 ### Uso de MAREA (30 - 45 min)
