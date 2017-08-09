@@ -99,37 +99,51 @@ knitr::include_graphics("./Figs/B2/comunidad.png")
 
 ## Biológicos
 
-- Biomasa\*
-- Densidad\*
-- Riqueza
-- Índice de Diversidad de Shannon
-- Nivel trófico
-- Organismos maduros\*
-- Perturbación natural
+- **B1**	Shannon diversity index
+- **B2**	Species richness
+- **B3**	Density of mature organisms\*
+- **B4**	Density\*
+- **B5**	Natural Disturbance
+- **B6**	Mean Trophic Level
+- **B7**	Biomass\*
 
 ## Socioeconómicos
 
-- Arribos
-- Ingresos
-- Oportunidades económicas alternativas a la pesca
+- **S1**	Total landings\*
+- **S2**	Income from total landings\*
+- **S3**	Alternative economic opportunities
 
 ## Gobernanza
 
--
--
--
--
--
--
--
--
--
--
--
--
--
--
--
+- **G1**	Access to the fishery
+- **G2**	Number of fishers
+- **G3**	Legal recognition of reserve
+- **G4**	Reserve type
+- **G5**	Illegal harvesting
+- **G6**	Management plan
+- **G7**	Reserve enforcement
+- **G8**	Size of reserve
+- **G9**	Reasoning for reserve location
+- **G10**	Membership to fisher organizations
+- **G11**	Type of fisheries organizations
+- **G12**	Representation
+- **G13**	Internal Regulation
+- **G14**	Perceived Effectiveness
+- **G15**	Social Impact of Reserve
+
+## Objetivos e Indicadores
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+read.csv("./Tabs/B2/Objectives_Indicators.csv") %>% 
+  select(Objective, B1, B2, B3, B4, B4., B5, B6, B7, B7., S1, S1., S2, S2., S3) %>% 
+  knitr::kable(format = "html", col.names = c("Objetivo", "B1", "B2", "B3", "B4", "B4*", "B5", "B6", "B7", "B7*", "S1", "S1*", "S2", "S2*", "S3")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+- Todos los de gobernanza se usan siempre
+
 
 
 ## Referencias
