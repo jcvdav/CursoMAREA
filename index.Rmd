@@ -64,7 +64,7 @@ La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han e
 
 ## Evaluación de Reservas Marinas
 
-### Objetivos e indicadores (30 - 45 min)
+### Objetivos e indicadores (30 min)
     
 Hablaremos sobre algunos de los trabajos que han creado metodologías y sugerencias para evaluar AMPs. Esto servirá como motivación de la necesidad de una aproximación que permita relacionar objetivos con indicadores, así como la relevancia de una herramienta que realice el análisis. Hablaremos de la identificación de objetivos para los cuales las reservas son establecidas y de los indicadores que pueden utilizarse para medir su impacto. Se presentarán los indicadores en las tres principales categorías *Biofísicos* *Socioeconómicos* y de *Gobernanza* y daremos un espacio para el diálogo y discusión sobre otros indicadores.
 
