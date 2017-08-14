@@ -147,16 +147,57 @@ read.csv("./Datos/peces_natividad.csv") %>%
 ```
 
 
-## Columnas mínimas
+## Variables mínimas necesarias: Socioeconómico {.smaller}
 
-**Datos Socioeconómicos**
+- Año
+- Comunidad
+- GeneroEspecie
+- Arribos
+- Ingresos
+- CPI
+- [Ejemplo](./Datos/natividad_landings_conapesca.csv)
 
-## Columnas mínimas
+## Ejemplo socioeconómico {.smaller}
 
-**Datos Gobernanza**
+```{r}
+read.csv("./Datos/natividad_landings_conapesca.csv") %>%
+  select(Ano, Comunidad, GeneroEspecie, Arribos, Ingresos, CPI) %>% 
+  DT::datatable(rownames = F) %>% 
+  DT::formatStyle(columns = c(1, 2, 3, 4, 5, 6), fontSize = '40%')
+```
+
+## Variables mínimas necesarias: Gobernanza {.smaller}
+
+```{r}
+gov <- read.csv("./Datos/Governancedata_MAREA.csv")
+```
+
+- Base muy larga (`r dim(gov)[2]` columnas)
+- `r colnames(gov)`
+- [Forma de Access](https://github.com/turfeffect/Docs/blob/master/Governance%20DB/Governance_0509.accdb) para captura de datos
+- [Ejemplo](./Datos/Governancedata_MAREA.csv)
+
+## Forma de Access
+
+```{r, fig.align = "center"}
+knitr::include_graphics("./Figs/B3/access.PNG")
+```
+
+## Forma de Access
+
+```{r, fig.align = "center"}
+knitr::include_graphics("./Figs/B3/access2.PNG")
+```
 
 ## Extensiones
 
-##
+- MAREA requiere que **todos** los datos estén en formato \*.csv:
+    - Valores coma-separados
+    - Elimina fórmulas, validaciones y funciones en celdas
+    - Elimina espacios en blanco antes y después de palabras ("Mero rojo" vs. "Mero rojo ")
+    - Elimina filas en blanco al final del archivo
+    - Archivos más ligeros
 
-##
+## Convertir \*.xls a \*csv
+
+![](./Figs/B3/xls2csv.png)
