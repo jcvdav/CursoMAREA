@@ -1,0 +1,242 @@
+---
+title: "Bloque 4"
+subtitle: "Análisis"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 4: Análisis');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Temas
+
+## Introducción {.smaller}
+
+<center>
+```{r, fig.height = 3, fig.width = 4}
+suppressPackageStartupMessages({
+  library(stargazer)
+  library(tidyverse)
+})
+
+storks <- read.csv("./Datos/storks.csv")
+
+ggplot(data = storks, mapping=aes(x = Storks/10, y = Birth)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "black") +
+  theme_bw() +
+  labs(y = "Biomasa (g / transecto)", x = "Días desde implementación")
+```
+
+```{r, results = "asis"}
+rename(storks, Biomasa = Birth, Dia = Storks) %>% 
+lm(Biomasa ~ Dia, data = .) %>% 
+  stargazer::stargazer(single.row = T, type = "html", report = "vc*p")
+```
+</center>
+
+## En realidad @matthews_2000-aM {.smaller}
+
+```{r, fig.height = 3, fig.width = 4, fig.align = "center"}
+knitr::include_graphics("./Figs/B4/storks.png")
+```
+
+```{r, fig.height = 3, fig.width = 4, fig.align = "center"}
+ggplot(data = storks, mapping=aes(x = Storks, y = Birth)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "black") +
+  theme_bw() +
+  labs(x = "Number of breeding stork pairs", y = "Human birth rate (thousands/year)")
+```
+
+# *"Correlación no implica causalidad"*
+
+## Análisis de MAREA
+
+- Biológicos: Diferencia-en-Diferencia (efectos fijos, GLM)
+- Socioeconómicos: Regresión lineal
+- Gobernanza: Tabla de decisiones, literatura
+
+## Biológicos
+
+```{r, fig.width = 10, fig.height = 3, fig.align = "center", message = FALSE, warning = FALSE}
+df <- data.frame(Zona = c("Control", "Reserva"), Antes = c(2, 4), Despues = c(4, 6), stringsAsFactors = F)
+df2 <- data.frame(Tiempo = c("Antes", "Despues"), Ano = c(1, 2), stringsAsFactors = F)
+
+p1 <- gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Zona)) +
+  geom_line(size = 2) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  scale_color_manual(values = c("blue", "red")) +
+  scale_alpha_manual(values = c(0.1, 1))
+
+p2 <- gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Tiempo)) +
+  geom_line(size = 2) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  scale_color_manual(values = c("blue", "red")) +
+  scale_alpha_manual(values = c(0.1, 1))
+
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
+- Cambio reserva en el tiempo
+- Diferencias entre reserva y control
+- **Efecto neto de la reserva en el indicador**
+    - Diferencia a través del tiempo **y** a través de tratamientos
+
+## Diferencia-en-Diferencia
+
+Características
+
+$$DeD = \Delta_T - \Delta_C$$
+
+$$DeD = (T_d-  T_a) - (C_d - C_a)$$
+
+## Ejemplo
+
+```{r}
+df <- data.frame(Zona = c("Control", "Reserva"), Antes = c(2, 4), Despues = c(4, 9), stringsAsFactors = F)
+
+df%>% 
+  cbind(AD = c(2, 5)) %>% 
+  rbind(data.frame(Zona = "Cambio", Antes = 2, Despues = 5, AD = 3)) %>%
+  knitr::kable(format = "html",
+             col.names = c("Zona", "Antes", "Después", "Cambio")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+df2 <- data.frame(Tiempo = c("Antes", "Despues"), Ano = c(1, 2), stringsAsFactors = F)
+
+p <- rbind(df, data.frame(Zona = "Z", Antes = 4, Despues = 6)) %>% 
+  gather(Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Zona)) +
+  geom_line(size = 2, aes(linetype = Zona)) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  scale_linetype_manual(values=c("solid", "solid", "dashed")) +
+  scale_color_manual(values = c("blue", "red", "red")) +
+  scale_alpha_manual(values = c(1, 1, 0.1)) 
+
+p
+```
+
+## Automatizar con regresión {.smaller}
+
+$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post$$
+
+```{r, results = "asis"}
+df %>% 
+  gather(Post, Indicador, -Zona) %>% 
+  lm(Indicador ~ Zona * Post, data = .) %>% 
+  stargazer(single.row = T, type = "html")
+```
+
+
+## Interpretación {.smaller}
+
+$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post$$
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p
+```
+
+- $\beta_0$: Valor del Control Antes
+- $\beta_1$: Diferencia entre Reserva y Control, Antes
+- $\beta_2$: Diferencia entre Antes y Después Control
+- $\beta_3$: Diferencia entre Reserva esperada y observada
+
+## Otra forma de verlo {.smaller}
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p
+```
+
+- Antes Control = $\beta_0$
+- Antes Reserva = $\beta_0 + \beta_1$
+- Después Control = $\beta_0 + \beta_2$
+- Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
+
+## Si {.smaller}
+
+Si:
+
+- Antes Control = $\beta_0$
+- Antes Reserva = $\beta_0 + \beta_1$
+- Después Control = $\beta_0 + \beta_2$
+- Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
+
+Entonces
+
+```{r}
+data.frame(Zona = c("Control", "Reserva", "$\\Delta$"),
+           Antes = c("$\\beta_0$", "$\\beta_0 + \\beta_1$", "$\\beta_1$"),
+           Despus = c("$\\beta_0 + \\beta_2$", "$\\beta_0 + \\beta_1 + \\beta_2 + \\beta_3$", "$\\beta_1 + \\beta_3$"),
+           Delta = c("$\\beta_2$", "$\\beta_2 + \\beta_3$", "$\\beta_3$")) %>% 
+  knitr::kable(format = "html",
+               col.names = c("Zona", "Antes", "Despues", "$\\Delta$")) %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+## Referencias
