@@ -12,6 +12,28 @@ output:
 bibliography: exported-references.bib
 ---
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 3: Datos y formato de datos');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -22,12 +44,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Todo nuestro esfuerzo es para obtener datos, **hay que cuidarlos**
 - Nombres de columna
-    - Sin espacios
+    - Sin espacios (usar *snake_case, CamelCase* o *dot.case*)
     - Sin caracteres especiales
     - Sin unidades
 - Metadatos
-- Para bases de datos: almacenamiento online (*e.g.* mySQL, KoBo Toolbox, Open Data Kit)
-- Para archivos en texto: sistemas de control de versión (*e.g.* GitHub, SVN, Mercurial)
+- Almacenamiento online (*e.g.* mySQL, KoBo Toolbox, Open Data Kit)
+- Sistemas de control de versión (*e.g.* GitHub, SVN, Mercurial)
 - Aprovechar todas las opciones "OpenScience" @lowndes_2017-xh
 - Crear capacidad de manejo de datos más allá de Excel / Access
 
