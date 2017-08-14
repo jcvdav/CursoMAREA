@@ -75,7 +75,7 @@ Hablaremos sobre algunos de los trabajos que han creado metodologías y sugerenc
     - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
     - Revisión sistemáticas de indicadores [@woodcock_2017-Wm].
 
-### Datos y formato de datos (30 - 45 min)
+### Datos y formato de datos (45 - 60 min)
     
 Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto. Se presentarán los conceptos de datos *largos* y *anchos*, y discutiremos sobre las ventajas de cada uno. Usaremos bases en ambos formatos para identificar las ventajas / desventajas de cada una y justificaremos el uso de datos *largos* en MAREA. Hablaremos sobre buenas prácticas de mantenimiento de bases de datos, nombres de columnas y metadatos. Terminaremos hablando de las extensiones (*e.g.* \*.csv) en las que se pueden exportar los datos / importar datos desde Excel.
 
@@ -83,6 +83,8 @@ Para poder usar MAREA sin problemas, es necesario que los datos tengan el format
 
 - [Diapositivas](./bloque3.html)
 - [Carpeta de dropbox]() con los datos
+- Literatura recomendada:
+    - Compartir datos para colaborar [@ellis_2017-lv]
 
 ### Análisis (~ 60 min)
     
