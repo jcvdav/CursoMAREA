@@ -193,8 +193,7 @@ knitr::kable(df,
   kableExtra::kable_styling(full_width = F)
 ```
 
-<center>
-```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
 df2 <- data.frame(Tiempo = c("Antes", "Despues"), Ano = c(1, 2), stringsAsFactors = F)
 
 gather(df, Tiempo, Valor, -Zona) %>% 
@@ -213,7 +212,6 @@ gather(df, Tiempo, Valor, -Zona) %>%
   theme(legend.justification = c(0, 0),
         legend.position = c(0.01, 0.01))
 ```
-</center>
 
 ## Ejemplo {.smaller}
 
@@ -227,8 +225,7 @@ df%>%
   kableExtra::kable_styling(full_width = F)
 ```
 
-<center>
-```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
 gather(df, Tiempo, Valor, -Zona) %>% 
   left_join(df2, by = "Tiempo") %>% 
   ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Zona)) +
@@ -244,7 +241,6 @@ gather(df, Tiempo, Valor, -Zona) %>%
   geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
   theme(legend.position = "None")
 ```
-</center>
 
 ## Ejemplo {.smaller}
 
@@ -259,8 +255,7 @@ df%>%
   kableExtra::kable_styling(full_width = F)
 ```
 
-<center>
-```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
 gather(df, Tiempo, Valor, -Zona) %>% 
   left_join(df2, by = "Tiempo") %>% 
   ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Tiempo)) +
@@ -275,7 +270,6 @@ gather(df, Tiempo, Valor, -Zona) %>%
   geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
   theme(legend.position = "None")
 ```
-</center>
 
 ## Ejemplo {.smaller}
 
@@ -290,8 +284,7 @@ df%>%
   kableExtra::kable_styling(full_width = F)
 ```
 
-<center>
-```{r, fig.width = 6, fig.height = 3, fig.pos = "center"}
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
 rbind(df, data.frame(Zona = "Z", Antes = 4, Despues = 6)) %>% 
   gather(Tiempo, Valor, -Zona) %>% 
   left_join(df2, by = "Tiempo") %>% 
@@ -311,7 +304,6 @@ rbind(df, data.frame(Zona = "Z", Antes = 4, Despues = 6)) %>%
   scale_color_manual(values = c("blue", "red", "red")) +
   scale_alpha_manual(values = c(1, 1, 0.5))
 ```
-</center>
 
 ## Referencias
 
