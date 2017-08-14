@@ -123,6 +123,7 @@ knitr::include_graphics("./Figs/B2/comunidad.png")
 ## Variables mínimas necesarias: Biológicos {.smaller}
 
 - Año
+- Comunidad
 - Sitio
 - Zona
 - **RC**
@@ -133,6 +134,7 @@ knitr::include_graphics("./Figs/B2/comunidad.png")
 - GeneroEspecie
 - Talla
 - Abudnancia
+- [Ejemplo](./Datos/peces_natividad.csv)
 
 ## Ejemplo biológico {.smaller}
 
