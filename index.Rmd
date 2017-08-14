@@ -93,7 +93,6 @@ Los participantes recibirán una breve introducción a la regresión lineal y el
 **Recursos**
 
 - [Diapositivas](./bloque4.html)
-- [Carpeta de dropbox]() con los datos
 
 ### Uso de MAREA (30 - 45 min)
     

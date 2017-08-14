@@ -184,30 +184,17 @@ p
 
 ## Automatizar con regresión {.smaller}
 
-$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post$$
-
+$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post+\epsilon$$
+<center>
 ```{r, results = "asis"}
 df %>% 
   gather(Post, Indicador, -Zona) %>% 
   lm(Indicador ~ Zona * Post, data = .) %>% 
   stargazer(single.row = T, type = "html")
 ```
-
+</center>
 
 ## Interpretación {.smaller}
-
-$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post$$
-
-```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
-p
-```
-
-- $\beta_0$: Valor del Control Antes
-- $\beta_1$: Diferencia entre Reserva y Control, Antes
-- $\beta_2$: Diferencia entre Antes y Después Control
-- $\beta_3$: Diferencia entre Reserva esperada y observada
-
-## Otra forma de verlo {.smaller}
 
 ```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
 p
@@ -218,9 +205,7 @@ p
 - Después Control = $\beta_0 + \beta_2$
 - Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
 
-## Si {.smaller}
-
-Si:
+## Si
 
 - Antes Control = $\beta_0$
 - Antes Reserva = $\beta_0 + \beta_1$
@@ -234,9 +219,59 @@ data.frame(Zona = c("Control", "Reserva", "$\\Delta$"),
            Antes = c("$\\beta_0$", "$\\beta_0 + \\beta_1$", "$\\beta_1$"),
            Despus = c("$\\beta_0 + \\beta_2$", "$\\beta_0 + \\beta_1 + \\beta_2 + \\beta_3$", "$\\beta_1 + \\beta_3$"),
            Delta = c("$\\beta_2$", "$\\beta_2 + \\beta_3$", "$\\beta_3$")) %>% 
+  knitr::kable(col.names = c("Zona", "Antes", "Despues", "$\\Delta$"))
+```
+
+## Otra forma de verlo {.smaller}
+
+$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post+\epsilon$$
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p
+```
+
+- $\beta_0$: Valor del Control Antes
+- $\beta_1$: Diferencia entre Reserva y Control, Antes
+- $\beta_2$: Diferencia entre Antes y Después Control
+- $\beta_3$: Diferencia entre Reserva esperada y observada
+
+## DeD en MAREA
+
+- Ejemplo con 4 observaciones
+- Nosotros tenemos muchas más
+    - \~16 transectos por sitio
+
+$$Indicador = \beta_0 + \beta_1Post + \beta_2Zona + \beta_3Post\times Zona+\epsilon$$
+
+$$I = \beta_0 + \sum_{i = 1}^n \gamma_iPost_i + \beta_2Zona + \beta_3Post\times Zona + \omega +\epsilon$$
+
+$$\omega = \beta_4Temp + \beta_5Prof + \beta_6Vis$$
+
+- $\beta_3$ sigue siendo el efecto neto de la reserva en el indicador
+
+## ¿Y si no tengo covariables?
+
+```{r}
+set.seed(1)
+data.frame(Ano = c(2010, 2010, 2011, 2011), Zona = c("Control", "Reserva", "Control", "Reserva"), Biomasa = runif(4), Temp = c(20, NA, 19, 21), Prof = c(14, 15, NA, 12), Vis = c(NA, 4, 5, 9)) %>% 
   knitr::kable(format = "html",
-               col.names = c("Zona", "Antes", "Despues", "$\\Delta$")) %>% 
+               col.names = c("Año", "Zona", "Biomasa", "Temp", "Prof", "Vis"),
+               digits = 2) %>% 
   kableExtra::kable_styling(full_width = F)
 ```
+
+- No se midió antes
+- Al buzo se le olvidó registrar profundidad
+- La computadora no marcaba Temperatura
+- Normalmente, se eliminaría el registro entero
+
+## MAREA y NAs
+
+- Evalúa proporción de datos con NA para cada punto de muestreo
+    - Antes Reserva
+    - Antes Control
+    - Después Reserva
+    - Después Control
+- Si incluir una covariable implica perder más del 10% de los datos, mejor eliminar covariable
 
 ## Referencias
