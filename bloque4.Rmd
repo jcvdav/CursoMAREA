@@ -87,7 +87,9 @@ ggplot(data = storks, mapping=aes(x = Storks, y = Birth)) +
 - Socioeconómicos: Regresión lineal
 - Gobernanza: Tabla de decisiones, literatura
 
-## Biológicos
+# Biológicos
+
+## ¿La reserva es efectiva?
 
 ```{r, fig.width = 10, fig.height = 3, fig.align = "center", message = FALSE, warning = FALSE}
 df <- data.frame(Zona = c("Control", "Reserva"), Antes = c(2, 4), Despues = c(4, 6), stringsAsFactors = F)
@@ -108,7 +110,7 @@ p1 <- gather(df, Tiempo, Valor, -Zona) %>%
   theme(legend.justification = c(0, 0),
         legend.position = "None") +
   scale_color_manual(values = c("blue", "red")) +
-  scale_alpha_manual(values = c(0.1, 1))
+  scale_alpha_manual(values = c(0.0, 1))
 
 p2 <- gather(df, Tiempo, Valor, -Zona) %>% 
   left_join(df2, by = "Tiempo") %>% 
@@ -125,10 +127,51 @@ p2 <- gather(df, Tiempo, Valor, -Zona) %>%
   theme(legend.justification = c(0, 0),
         legend.position = "None") +
   scale_color_manual(values = c("blue", "red")) +
-  scale_alpha_manual(values = c(0.1, 1))
+  scale_alpha_manual(values = c(0.0, 1))
 
 gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
+
+## ¿La reserva es efectiva?
+
+```{r, fig.width = 10, fig.height = 3, fig.align = "center", message = FALSE, warning = FALSE}
+p1 <- gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Zona)) +
+  geom_line(size = 2) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  scale_color_manual(values = c("blue", "red")) +
+  scale_alpha_manual(values = c(1, 1))
+
+p2 <- gather(df, Tiempo, Valor, -Zona) %>% 
+  left_join(df2, by = "Tiempo") %>% 
+  ggplot(aes(x = Ano, y = Valor, color = Zona, alpha = Tiempo)) +
+  geom_line(size = 2) +
+  geom_point(size = 4) +
+  theme_bw() +
+  labs(x = "Año", y = "Indicador") +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(2, 10)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 10, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 10, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  scale_color_manual(values = c("blue", "red")) +
+  scale_alpha_manual(values = c(1, 1))
+
+gridExtra::grid.arrange(p1, p2, ncol = 2)
+```
+
 
 - Cambio reserva en el tiempo
 - Diferencias entre reserva y control
@@ -137,11 +180,17 @@ gridExtra::grid.arrange(p1, p2, ncol = 2)
 
 ## Diferencia-en-Diferencia
 
-Características
+- Técnica de Econometría
+- Utilizada en evaluación de impacto:
+    - ¿Cuál es el efecto de una intervención de manejo?
+        - Programa PROGRESA [@paulschultz_2004-XY]
+        - Efecto ITQs [@costello_2008-Ia]
+        - Efecto RM en langosta y bacalao [@moland_2013-VP]
+- Requiere diseño ADCI (BACI)
+        
 
-$$DeD = \Delta_T - \Delta_C$$
-
-$$DeD = (T_d-  T_a) - (C_d - C_a)$$
+- $$DeD = \Delta_T - \Delta_C$$
+- $$DeD = (T_d-  T_a) - (C_d - C_a)$$
 
 ## Ejemplo
 
@@ -150,9 +199,9 @@ df <- data.frame(Zona = c("Control", "Reserva"), Antes = c(2, 4), Despues = c(4,
 
 df%>% 
   cbind(AD = c(2, 5)) %>% 
-  rbind(data.frame(Zona = "Cambio", Antes = 2, Despues = 5, AD = 3)) %>%
+  rbind(data.frame(Zona = "$\\Delta$", Antes = 2, Despues = 5, AD = "**3**")) %>%
   knitr::kable(format = "html",
-             col.names = c("Zona", "Antes", "Después", "Cambio")) %>% 
+             col.names = c("Zona", "Antes", "Después", "$\\Delta$")) %>% 
   kableExtra::kable_styling(full_width = F)
 ```
 
@@ -190,39 +239,11 @@ $$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post+\epsi
 df %>% 
   gather(Post, Indicador, -Zona) %>% 
   lm(Indicador ~ Zona * Post, data = .) %>% 
-  stargazer(single.row = T, type = "html")
+  stargazer(single.row = T, type = "html", covariate.labels = c("<p>&beta;<sub>0</sub></p>", "<p>&beta;<sub>1</sub></p>", "<p>&beta;<sub>2</sub></p>", "<p>&beta;3</p>"), intercept.bottom = F)
 ```
 </center>
 
 ## Interpretación {.smaller}
-
-```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
-p
-```
-
-- Antes Control = $\beta_0$
-- Antes Reserva = $\beta_0 + \beta_1$
-- Después Control = $\beta_0 + \beta_2$
-- Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
-
-## Si
-
-- Antes Control = $\beta_0$
-- Antes Reserva = $\beta_0 + \beta_1$
-- Después Control = $\beta_0 + \beta_2$
-- Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
-
-Entonces
-
-```{r}
-data.frame(Zona = c("Control", "Reserva", "$\\Delta$"),
-           Antes = c("$\\beta_0$", "$\\beta_0 + \\beta_1$", "$\\beta_1$"),
-           Despus = c("$\\beta_0 + \\beta_2$", "$\\beta_0 + \\beta_1 + \\beta_2 + \\beta_3$", "$\\beta_1 + \\beta_3$"),
-           Delta = c("$\\beta_2$", "$\\beta_2 + \\beta_3$", "$\\beta_3$")) %>% 
-  knitr::kable(col.names = c("Zona", "Antes", "Despues", "$\\Delta$"))
-```
-
-## Otra forma de verlo {.smaller}
 
 $$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post+\epsilon$$
 
@@ -233,21 +254,173 @@ p
 - $\beta_0$: Valor del Control Antes
 - $\beta_1$: Diferencia entre Reserva y Control, Antes
 - $\beta_2$: Diferencia entre Antes y Después Control
-- $\beta_3$: Diferencia entre Reserva esperada y observada
+- $\beta_3$: Diferencia entre Reserva esperada y observada (efecto neto de la reserva)
+
+## Otra forma de verlo {.smaller}
+
+$$Indicador = \beta_0 + \beta_1Zona + \beta_2Post + \beta_3Zona\times Post+\epsilon$$
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p
+```
+
+- Antes Control = $\beta_0$
+- Antes Reserva = $\beta_0 + \beta_1$
+- Después Control = $\beta_0 + \beta_2$
+- Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
+
+## En tabla {.smaller}
+
+Antes Control = $\beta_0$
+
+Antes Reserva = $\beta_0 + \beta_1$
+
+Después Control = $\beta_0 + \beta_2$
+
+Después Reserva = $\beta_0 + \beta_1 + \beta_2 + \beta_3$
+
+**Entonces**
+
+```{r}
+data.frame(Zona = c("Control", "Reserva", "$\\Delta$"),
+           Antes = c("$\\beta_0$", "$\\beta_0 + \\beta_1$", "$\\beta_1$"),
+           Despus = c("$\\beta_0 + \\beta_2$", "$\\beta_0 + \\beta_1 + \\beta_2 + \\beta_3$", "$\\beta_1 + \\beta_3$"),
+           Delta = c("$\\beta_2$", "$\\beta_2 + \\beta_3$", "**$\\beta_3$**")) %>% 
+  knitr::kable(col.names = c("Zona", "Antes", "Despues", "$\\Delta$"))
+```
+
+# Pero yo tengo réplicas por año...
+
+## Ejemplo varias observaciones
+
+```{r}
+df <- data.frame(Sitio = "El Bajo",
+                 Ano = c(1,1,1,1,2,2,2,2),
+                 Zona = rep(c("Reserva", "Reserva", "Control", "Control"), 2),
+                 Post = c(rep("Antes", 4), rep("Despues", 4)),
+                 Valor = c(3.5, 4.5, 1.5, 2.5, 8.5, 9.5, 3.5, 4.5))
+```
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p <- ggplot(df, aes(x = Ano, y = Valor, color = Zona)) +
+  geom_point(size = 3) +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  scale_x_continuous(breaks = c(0, 1, 2, 3), limits = c(0.5, 2.5)) +
+  scale_y_continuous(limits = c(0, 11)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 11, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2, y = 11, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  labs(x = "Año", y = "Indicador")
+
+p
+```
+
+¡Es mejor!
+
+## Ejemplo varias observaciones
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p + stat_summary(geom = "line", fun.y = "mean")
+```
+
+Los coeficientes tienden al promedio
+
+## Ejemplo de varias observaciones {.smaller}
+
+<center>
+```{r, results = "asis"}
+lm(Valor ~ Zona * Post, data = df) %>% 
+  stargazer(single.row = T,
+            type = "html",
+            covariate.labels = c("<p>&beta;<sub>0</sub></p>",
+                                 "<p>&beta;<sub>1</sub></p>",
+                                 "<p>&beta;<sub>2</sub></p>",
+                                 "<p><b>&beta;3</b></p>"),
+            intercept.bottom = F, notes = c("+p<0.1; ++p<0.05; +++p<0.01"),
+            star.char = "+",
+            notes.append = F,
+            notes.label = "Notes:",
+            report = "vcs*")
+```
+</center>
+
+- Podemos calcular errores estándar
+- Prueba de hipótesis a todos los coeficientes (t student)
 
 ## DeD en MAREA
 
-- Ejemplo con 4 observaciones
-- Nosotros tenemos muchas más
-    - \~16 transectos por sitio
+- $$Indicador = \beta_0 + \beta_1Post + \beta_2Zona + \beta_3Post\times Zona+\epsilon$$
 
-$$Indicador = \beta_0 + \beta_1Post + \beta_2Zona + \beta_3Post\times Zona+\epsilon$$
+- Más periodos de tiempo (Antes, Después, Después, Después, Después...)
 
-$$I = \beta_0 + \sum_{i = 1}^n \gamma_iPost_i + \beta_2Zona + \beta_3Post\times Zona + \omega +\epsilon$$
+- Cambios aditivos y multiplicativos
+
+- $$I = \beta_0 + \sum_{i = 1}^n \gamma_iPost_i + \beta_2Zona + \beta_3Post\times Zona + \omega +\epsilon$$
+
+- **$\beta_3$** sigue siendo el efecto neto de la reserva en el indicador
+
+- Errores estándar robustos a datos heterocedásticos
+
+## DeD en MAREA {.smaller}
+
+```{r}
+df <- data.frame(Sitio = "El Bajo",
+                 Ano = c(1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4),
+                 Zona = rep(c("Reserva", "Reserva", "Control", "Control", "Reserva", "Reserva", "Control", "Control"), 2),
+                 Post = c(rep("Antes", 4), rep("Despues", 12)),
+                 Valor = c(3.5, 4.5, 1.5, 2.5, 8.5, 9.5, 3.5, 4.5, 13.5, 14.5, 5.5, 6.5, 18.5, 19.5, 7.5, 8.5))
+```
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+ggplot(df, aes(x = Ano, y = Valor, color = Zona)) +
+  geom_point(size = 3) +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  scale_x_continuous(breaks = c(0, 1, 2, 3, 4, 5), limits = c(0, 5)) +
+  scale_y_continuous(limits = c(0, 20)) +
+  geom_vline(xintercept = 1.5, linetype = "dashed") +
+  geom_text(x = 1, y = 20, label = "Antes", color = "blacK", size = 8) +
+  geom_text(x = 2.5, y = 20, label = "Después", color = "blacK", size = 8) +
+  theme(legend.justification = c(0, 0),
+        legend.position = "None") +
+  labs(x = "Año", y = "Indicador") + 
+  stat_summary(geom = "line", fun.y = "mean")
+```
+
+## DeD en MAREA {.smaller}
+
+<center>
+
+```{r, results = "asis"}
+lm(Valor ~ as.factor(Ano) + Zona + Post + Zona * Post, data = df) %>% 
+  stargazer(single.row = T,
+            type = "html",
+            covariate.labels = c("<p>&beta;<sub>0</sub></p>",
+                                 "<p>&gamma;<sub>1</sub></p>",
+                                 "<p>&gamma;<sub>2</sub></p>",
+                                 "<p>&gamma;<sub>3</sub></p>",
+                                 "<p>&beta;<sub>1</sub></p>",
+                                 "",
+                                 "<p><b>&beta;<sub>3</sub></b></p>"),
+            intercept.bottom = F, notes = c("+p<0.1; ++p<0.05; +++p<0.01"),
+            star.char = "+",
+            notes.append = F,
+            notes.label = "Notes:",
+            report = "vcs*",
+            digits = 2)
+```
+</center>
+
+## Covariables para mejorar ajuste
 
 $$\omega = \beta_4Temp + \beta_5Prof + \beta_6Vis$$
 
-- $\beta_3$ sigue siendo el efecto neto de la reserva en el indicador
+- Temperatura del agua durante el transecto
+- Profundidad del transecto
+- Visibilidad (horizontal) durante el transecto
 
 ## ¿Y si no tengo covariables?
 
@@ -273,5 +446,30 @@ data.frame(Ano = c(2010, 2010, 2011, 2011), Zona = c("Control", "Reserva", "Cont
     - Después Reserva
     - Después Control
 - Si incluir una covariable implica perder más del 10% de los datos, mejor eliminar covariable
+
+## $\beta_3$
+    
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+knitr::include_graphics("./Figs/B4/legend2.gif")
+```
+
+- $\beta_3$ es nuestro valor del efecto neto de la reserva
+- Se usa en la tabla de puntajes para definir:
+    - color (sentido)
+    - intensidad (significancia)
+
+# Socioeconómicos
+
+## Falta de control
+
+- Por la naturaleza de los datos, no existe una "comunidad comtrol"
+- Necesitariamos una comunidad idéntica pero SIN reservas
+- Aún podemos extraer información útil
+
+## Modelo socioeconómico
+
+$$I = \beta_1Post + \beta_0$$
+- Comparación antes - después de los datos
+
 
 ## Referencias
