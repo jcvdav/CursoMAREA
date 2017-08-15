@@ -86,7 +86,7 @@ Para poder usar MAREA sin problemas, es necesario que los datos tengan el format
 - Literatura recomendada:
     - Compartir datos para colaborar [@ellis_2017-lv]
 
-### Análisis (~ 60 min)
+### Análisis (~ 60 - 90 min)
     
 Los participantes recibirán una breve introducción a la regresión lineal y el concepto de los "Contrafactuales". Con datos simplificados, los participantes calcularán "a mano" el efecto (o impacto) de una intervención de manejo. Esto nos permitirá deducir el modelo de Diferencia-en-Diferencias utilizado en la evaluación de los indicadores biofísicos. Se presentarán también el modelo lineal utilizado para evaluar indicadores socioeconómicos y la tabla de decisiones para los indicadores de gobernanza. Los participantes tendrán la oportunidad de usar estas herramientas "a mano" antes de utilizar MAREA.
 
