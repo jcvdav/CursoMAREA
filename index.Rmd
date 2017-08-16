@@ -94,7 +94,7 @@ Los participantes recibirán una breve introducción a la regresión lineal y el
 
 - [Diapositivas](./bloque4.html)
 
-### Uso de MAREA (30 - 45 min)
+### Uso de MAREA (45 min)
     
 Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoceremos los datos y análisis, por lo que no nos limitaremos a aprender su uso, sino comprender las operaciones y procesos que realiza. Esto permitirá anticipar errores y comprender las capacidades y limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla Natividad como ejemplo para llevar a cabo la evaluación de la reserva de "La Plana / Las Cuevas".
 
@@ -104,7 +104,7 @@ Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoce
 - [Carpeta de dropbox]() con los datos
 - [Link a MAREA](turfeffect.shinyapps.io/MAREA)
 
-### Interpretación de resultados (~ 45 min)
+### Interpretación de resultados (45 min)
     
 Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produc MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
 
