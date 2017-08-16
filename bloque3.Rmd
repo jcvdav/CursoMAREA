@@ -134,6 +134,7 @@ knitr::include_graphics("./Figs/B2/comunidad.png")
 - GeneroEspecie
 - Talla
 - Abudnancia
+- Historia de vida (*a*, *b*, *NT*, *Lm*)
 - [Ejemplo](./Datos/peces_natividad.csv)
 
 ## Ejemplo biológico {.smaller}
