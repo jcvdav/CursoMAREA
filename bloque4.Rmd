@@ -422,6 +422,8 @@ $$\omega = \beta_4Temp + \beta_5Prof + \beta_6Vis$$
 - Profundidad del transecto
 - Visibilidad (horizontal) durante el transecto
 
+## Covariables para mejorar ajuste
+
 ## ¿Y si no tengo covariables?
 
 ```{r}
@@ -462,14 +464,101 @@ knitr::include_graphics("./Figs/B4/legend2.gif")
 
 ## Falta de control
 
-- Por la naturaleza de los datos, no existe una "comunidad comtrol"
-- Necesitariamos una comunidad idéntica pero SIN reservas
+- Por la naturaleza de los datos, no existe una "comunidad control"
+- Necesitaríamos una comunidad idéntica pero **SIN** reservas
 - Aún podemos extraer información útil
 
 ## Modelo socioeconómico
 
 $$I = \beta_1Post + \beta_0$$
 - Comparación antes - después de los datos
+- $$\beta_1$$ me indica la diferencia entre promedio antes y después
+- IPC para normalizar ingresos (usuario debe incluir estos valores)
+    - Disponibles en [OECD](https://data.oecd.org/price/inflation-cpi.htm)
 
+## Normalizar ingresos
+
+$$IN_t = IR\times \frac{IPC_t}{CPI_T}$$
+- $IN$: ingreso normalizado
+- $IR$: ingreso reportado
+- $IPC_t$: índice de precio al consumidor en el año $t$
+- $IPC_T$: índice de precio al consumidor en el último año ($T$)
+
+## Ejemplo
+
+```{r}
+df <- data.frame(t = c(2010, 2011, 2012, 2013, 2014),
+           IR = c(130.5145, 159.2171, 131.8354, 142.5270, 135),
+           IPC = c(4.156728, 3.40738, 4.11508, 3.80639, 4.018617)) %>% 
+  mutate(t_T = (IPC/4.018617),
+         IN = IR*t_T)
+
+knitr::kable(df,
+             digits = 2,
+             col.names = c("t", "IR", "IPC", "IPCt/IPCT", "IN"))
+```
+
+## Ejemplo
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p <- select(df, -c(IPC, t_T)) %>% 
+  gather(Ingreso, Valor, -t) %>% 
+  ggplot(aes(x = t, y = Valor, color = Ingreso, alpha = Ingreso)) +
+  geom_point(size = 3) +
+  geom_line() +
+  theme_bw() +
+  scale_color_brewer(palette = "Set1") +
+  geom_vline(xintercept = 2011.5, linetype = "dashed", color = "black", size = 1) +
+  theme(legend.position = "None")
+
+p + scale_alpha_manual(values = c(0,1))
+```
+
+## Ejemplo
+
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+p + scale_alpha_manual(values = c(1,1))
+```
+
+## Ejemplo
+
+```{r, results = "asis"}
+
+df <- mutate(df, Post = c("0", "0", "1", "1", "1"))
+
+m1 <- lm(IR ~ Post, df)
+m2 <- lm(IN ~ Post, df)
+
+stargazer(m1, m2,
+          single.row = T,
+          digits = 2,
+          report = "vcs*",
+          type = "html",
+          covariate.labels = c("<p>&beta;<sub>0</sub></p>", "<p>&beta;<sub>1</sub></p>"),
+          intercept.bottom = F)
+
+```
+
+## $\beta_1$
+    
+```{r, fig.width = 6, fig.height = 3, fig.align = "center"}
+knitr::include_graphics("./Figs/B4/legend2.gif")
+```
+
+- $\beta_1$ indica diferencia entre antes y después
+- Se usa en la tabla de puntajes para definir:
+    - color (sentido)
+    - intensidad (significancia)
+    
+## Gobernanza
+
+- Indicadores de cambio
+    - Nivel de pesca ilegal (antes vs. ahora)
+    - Número de pescadores (antes vs. ahora)
+    - Se analizan según literatura (bueno = verde, malo = rojo)
+- Algunos indicadores son narrativos
+    - *e.g.* "Razonamiento para la localización de la reserva"
+    - No se analizan, pero se incluye la narrativa en el reporte
+- Resumen con gráficos en el reporte generado por MAREA
 
 ## Referencias
