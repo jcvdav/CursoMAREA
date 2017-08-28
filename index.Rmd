@@ -9,6 +9,7 @@ output:
     toc_float:
       collapsed: no
       smooth_scroll: no
+      css: myCSS.css
 bibliography: exported-references.bib
 csl: peerj.csl
 ---
@@ -34,9 +35,7 @@ A continuación se presenta el temario del curso, incluyendo los tiempos estimad
 
 ## MAREA
 
-MAREA permite evaluar rápidamente hasta 29 (indicadores biofísicos, socioeconómicos y de gobernanza) asociados a reservas marinas. A continuación, la demostración del uso de MAREA para evaluar una reserva en menos de un minuto.
-
-<iframe width="560" height="315" src="https://vimeo.com/231438809" frameborder="0" allowfullscreen></iframe>
+MAREA permite evaluar rápidamente hasta 29 (indicadores biofísicos, socioeconómicos y de gobernanza) asociados a reservas marinas. Ve el [video con la demostración](https://vimeo.com/231438809) del uso de MAREA para evaluar una reserva en menos de un minuto.
 
 ## Introducción
 
