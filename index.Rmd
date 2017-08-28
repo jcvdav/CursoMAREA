@@ -32,6 +32,12 @@ Las preguntas y discusiones son bienvenidas a lo largo de todo el curso.
 
 A continuación se presenta el temario del curso, incluyendo los tiempos estimados para las secciones. El curso será una combinación de teoría y práctica. La dinámica general consistirá en presentar los conceptos y acompañarlos con ejemplos que permitan entenderlos mejor.
 
+## MAREA
+
+MAREA permite evaluar rápidamente hasta 29 (indicadores biofísicos, socioeconómicos y de gobernanza) asociados a reservas marinas. A continuación, la demostración del uso de MAREA para evaluar una reserva en menos de un minuto.
+
+<iframe width="560" height="315" src="https://vimeo.com/231438809" frameborder="0" allowfullscreen></iframe>
+
 ## Introducción
 
 ### Áreas Marinas Protegidas y Reservas Marinas
