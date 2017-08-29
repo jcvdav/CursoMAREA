@@ -46,12 +46,18 @@ suppressPackageStartupMessages({
 
 ## Temas
 
+- Qué es MAREA?
+- Cómo funciona?
+- Qué hace / no hace?
+- Demostración
+- Ejemplos
+
 ## ¿Qué es MAREA?
 
 - Aplicación web (*Beta*): [MAREA](turfeffect.shinyapps.io/MAREA)
 - Desarrollada en R, con shiny
     - Permite mezclar `R`, `html`, `JavaScript` y `css`
-- Libre acceso\*
+- Libre acceso
 - Se puede ejecutar localmente
 - Usa paquete de R [MPAtools](https://github.com/turfeffect/MPAtools)
 
@@ -111,7 +117,25 @@ MPAtools::mpa_plot4(model = natividad$model,
 
 ## Demostración de MAREA
 
+[LINK A MAREA](turfeffect.shinyapps.io)
+
 ## Su turno
+
+- Descarguen datos en la carpeta de dropbox o de MAREA ([turfeffect.shinyapps.io](turfeffect.shinyapps.io))
+
+```{r}
+read.csv("../AppDraft/MAREA/www/bio_fish.csv") %>% 
+  group_by(Comunidad, RC) %>% 
+  summarize(ano = min(Ano)) %>% 
+  knitr::kable(format = "html", booktabs = T) %>% 
+  kableExtra::kable_styling() %>% 
+  kableExtra::collapse_rows(columns = 1)
+```
+
+- Datos "inventados"
+- Selecciones sus objetivos
+- Jueguen con MAREA
+- Intenten cometer errores y ver qué pasó
 
 ## Futuras mejoras en MAREA
 

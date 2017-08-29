@@ -40,6 +40,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Temas
 
+- Buenas prácticas
+- Tipos de formatos
+- Fuentes de datos
+- Variables necesarias
+- Ejemplos
+
 ## Buenas prácticas {.smaller}
 
 - Todo nuestro esfuerzo es para obtener datos, **hay que cuidarlos**
@@ -142,6 +148,7 @@ knitr::include_graphics("./Figs/B2/comunidad.png")
 ```{r}
 read.csv("./Datos/peces_natividad.csv") %>%
   select(Ano, Sitio, Zona, RC, Transecto, Prof = ProfundidadInicial, Vis = Visibilidad, Temp = Temperatura, GeneroEspecie, Talla, Abundancia) %>% 
+  filter(Abundancia > 0) %>% 
   head(100) %>% 
   DT::datatable(rownames = F) %>% 
   DT::formatStyle(columns = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), fontSize = '40%')
@@ -201,4 +208,8 @@ knitr::include_graphics("./Figs/B3/access2.PNG")
 
 ## Convertir \*.xls a \*csv
 
-![](./Figs/B3/xls2csv.png)
+```{r, fig.width = 3}
+knitr::include_graphics("./Figs/B3/xls2csv.png")
+```
+
+## Refrencias

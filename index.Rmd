@@ -80,14 +80,13 @@ Hablaremos sobre algunos de los trabajos que han creado metodologías y sugerenc
     - Marcos para evaluar AMPs/RM [@pomeroy_2005-Py; @mascia_2017-m_]
     - Revisión sistemáticas de indicadores [@woodcock_2017-Wm].
 
-### Datos y formato de datos (45 - 60 min)
+### Datos y formato de datos (40 min)
     
 Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto. Se presentarán los conceptos de datos *largos* y *anchos*, y discutiremos sobre las ventajas de cada uno. Usaremos bases en ambos formatos para identificar las ventajas / desventajas de cada una y justificaremos el uso de datos *largos* en MAREA. Hablaremos sobre buenas prácticas de mantenimiento de bases de datos, nombres de columnas y metadatos. Terminaremos hablando de las extensiones (*e.g.* \*.csv) en las que se pueden exportar los datos / importar datos desde Excel.
 
 **Recursos**
 
 - [Diapositivas](./bloque3.html)
-- [Carpeta de dropbox]() con los datos
 - Literatura recomendada:
     - Compartir datos para colaborar [@ellis_2017-lv]
 
@@ -99,25 +98,20 @@ Los participantes recibirán una breve introducción a la regresión lineal y el
 
 - [Diapositivas](./bloque4.html)
 
-### Uso de MAREA (45 min)
+### Uso de MAREA (60 min)
     
 Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoceremos los datos y análisis, por lo que no nos limitaremos a aprender su uso, sino comprender las operaciones y procesos que realiza. Esto permitirá anticipar errores y comprender las capacidades y limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla Natividad como ejemplo para llevar a cabo la evaluación de la reserva de "La Plana / Las Cuevas".
 
 **Recursos**
 
-- [Diapositivas]()
-- [Carpeta de dropbox]() con los datos
+- [Diapositivas](./bloque5.html)
+- [Carpeta de dropbox](https://www.dropbox.com/sh/lgwrp5z578rcz27/AAClBu4sX03P6L5PX4aN1z75a?dl=0) con los datos
 - [Link a MAREA](turfeffect.shinyapps.io/MAREA)
 
 ### Interpretación de resultados (45 min)
     
-Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produc MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
-
-**Recursos**
-
-- [Diapositivas]()
+Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produce MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
     
 # Resumen (~ 15 min)
 
 # Referencias
-
