@@ -54,7 +54,7 @@ knitr::opts_chunk$set(echo = FALSE)
     - Productividad
     - Heterogeneidad de hábitat
 - Hay que ser cuidadosos al evaluar reservas, pues podemos malinformar
-- Los siguientes ejemplos **no** son malos estudios, nuestra interpretación es mala
+- Los siguientes ejemplos **no** son malos estudios, nuestra interpretación es incorrecta
 
 ## Evaluación Antes-Después
 
@@ -80,7 +80,7 @@ knitr::opts_chunk$set(echo = FALSE)
 </center>
 
 - *"Marine reserve protection* **resulted** *in an increase in the relative abundance and  species richness of  large edible species within the assemblages"*
-- *"Species richness, density, and biomass of fish on the protected reefs increased respectively by 67%, 160% and 246%.* ** This increase was statistically  significant."**
+- *"Species richness, density, and biomass of fish on the protected reefs increased respectively by 67%, 160% and 246%."*... **"This increase was statistically  significant."**
 
 ## Evaluación Antes-Después
 
@@ -92,7 +92,8 @@ knitr::opts_chunk$set(echo = FALSE)
     - Tendemos a asumir que hay una relación causal
 - No toma en cuenta otras intervenciones (*e.g.* mejor manejo pesquero en general)
 - El ambiente entero se pudo haber hecho más productivo [@szuwalski_2017-jc]
-- Interpretación (errónea): Implementar una reserva incrementa la biomasa en 246%
+- Interpretación errónea: Implementar una reserva incrementa la biomasa en 246% en sólo 4 años
+- Lo correcto: Entre 1990 y 1994, hubo un incremento de biomasa del 246%
 
 ## Evaluación Dentro-Fuera
 
@@ -107,8 +108,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Red de AMPs de Palau (se enfocan en las RM)
 - Implementadas en 2003 (pero larga historia de manejo comunitario)
-- Estudio prube diferentes hipótesis, pero nos interesa la de la reserva
-- Usan biomasa de peces pra medir el efecto
+- Usan biomasa de peces para medir el efecto
 - Controles son: *"similar adjacent unprotected habitats"*
 
 ## Evaluación Dentro-Fuera {.smaller}
@@ -166,7 +166,7 @@ knitr::opts_chunk$set(echo = FALSE)
 </center>
 
 - "*The effect of [time] depended on treatment and that population development was different between treatments*"
-- "*By 2010, the mean relative CPUE had increased by 245 percent in MPAs, whereas mean relative CPUE in control areas had increased by 87 per cent*"
+- "*By 2010, the mean relative CPUE had increased by 245 percent in MPAs, whereas mean relative CPUE in control areas had increased by 87 percent*"
 
 ## Evaluación Antes-Después-Control-Impacto
 

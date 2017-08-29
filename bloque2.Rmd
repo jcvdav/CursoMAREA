@@ -58,7 +58,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Lista de indicadores biofísicos y sociales
 - Buenos ejemplos y casos de estudio
-- Breves indicaciones de como recopilar información
+- Breves indicaciones de cómo recopilar información
 - No indica cómo evaluar indicadores
 
 ## @mascia_2017-m_

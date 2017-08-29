@@ -53,7 +53,7 @@ La gran veriedad de nomenclaturas y nombres legales bajo los que se implementan 
     - Beneficios de las AMP y RM [@lester_2009-Ks; @lester_2008-F_; @roberts_2017-J9]
 
 
-### Historia de la evaluación de RM (30 - 45 min)
+### Historia de la evaluación de RM (30 min)
     
 La evaluación de RM no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, será útil hacer una recapitulación de metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Se presentarán casos publicados en literatura científica como ejemplo, enfocándonos en los indicadores y diseños de muestreo. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de RM y otros impactos ecológicos. Por medio de ejemplos prácticos, identificaremos las ventajas y desventajas de cada uno, así como sus implicaciones en el manejo. Una discusión grupal motivará la necesidad de alinear objetivos de manejo con indicadores y el uso apropiado de análisis que permitan informar el manjo de las reservas.
 
