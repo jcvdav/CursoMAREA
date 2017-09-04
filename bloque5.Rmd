@@ -17,7 +17,7 @@ bibliography: exported-references.bib
 <script>
     $(document).ready(function() {
     $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
-    $('footer').attr('label', 'Bloque 4: Análisis');
+    $('footer').attr('label', 'Bloque 5: MAREA');
 
   })
 </script>

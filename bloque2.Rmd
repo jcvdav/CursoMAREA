@@ -63,12 +63,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## @mascia_2017-m_
 
-- Incorpora dimensiones B, S, G
+- Aproximación 3FIGS (*"Three-framework  approach for  impact evaluation  of  governance  in  social–ecological systems"*):
+    - Teoría de sistemas socio-ecológicos [@ostrom_2009-hg]
+    - Evaluación de impacto
+    - Teoría de gobernanza de recursos de uso común
 
 ## Estos marcos
 
 - Buena fuente para obtener indicadores (pero no alínean objetivos - indicadores)
-- No hay herramienta
+- Buenos para análisis a gran escala
+- No hay herramienta:
     - Replicabilidad
     - Estandarización
     - Empoderamiento (*e.g.* ZRP)
