@@ -29,6 +29,9 @@ Al concluir el curso, los participantes podrán realizar la evaluación de Reser
 
 Las preguntas y discusiones son bienvenidas a lo largo de todo el curso.
 
+**Recursos**
+- [Diapositivas](./intro.html)
+
 # Temario
 
 A continuación se presenta el temario del curso, incluyendo los tiempos estimados para las secciones. El curso será una combinación de teoría y práctica. La dinámica general consistirá en presentar los conceptos y acompañarlos con ejemplos que permitan entenderlos mejor.

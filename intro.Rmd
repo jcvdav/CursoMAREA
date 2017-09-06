@@ -1,0 +1,72 @@
+---
+title: "Introducción"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Intro');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Presentaciones
+
+## Objetivos del curso
+
+- Aprender a usar MAREA
+- No es un curso detallado de evaluación de RM o acciones de manejo
+
+## Vista previa de MAREA
+
+[MAREA](turfeffect.shinyapps.io)
+
+## Esquema del curso
+
+- Historia de la evaluación de RM (~ 30 min)
+- Objetivos e indicadores (~ 30 min)
+- Datos y formato de datos (~ 40 min)
+
+- Comida (~ 90 min)
+
+- Análisis (~ 75 min)
+- Uso de MAREA (~ 60 min)
+    - Demostración detallada
+    - Ejercicios
+- Interpretación de resultados (~ 20 min)
+- Resumen (~ 15 min)
+
+## Generalidades
+
+- Participaciones bienvenidas
+- Entre más preguntas mejor
+
+
+
