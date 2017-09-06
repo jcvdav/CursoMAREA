@@ -14,6 +14,8 @@ bibliography: exported-references.bib
 csl: peerj.csl
 ---
 
+Bren School of Environmental Science & Management, University of California Santa Barbara
+
 jvillasenor@bren.ucsb.edu
 
 
@@ -116,5 +118,7 @@ Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoce
 Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produce MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
     
 # Resumen (~ 15 min)
+
+Hablaremos sobre las posibilidades de mejora de MAREA y dudas específicas de los participantes. No hay diapositivas.
 
 # Referencias

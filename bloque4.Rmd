@@ -561,4 +561,8 @@ knitr::include_graphics("./Figs/B4/legend2.gif")
     - No se analizan, pero se incluye la narrativa en el reporte
 - Resumen con gráficos en el reporte generado por MAREA
 
-## Referencias
+## Referencias {.smaller}
+
+<div id="refs"></div>
+
+# [Bloque 5](./bloque5.html)

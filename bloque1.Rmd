@@ -305,7 +305,11 @@ rbind(df, data.frame(Zona = "Z", Antes = 4, Despues = 6)) %>%
   scale_alpha_manual(values = c(1, 1, 0.5))
 ```
 
-## Referencias
+## Referencias {.smaller}
+
+<div id="refs"></div>
+
+# [Bloque 2](./bloque2.html)
 
 
 

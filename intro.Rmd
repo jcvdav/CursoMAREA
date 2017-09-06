@@ -41,20 +41,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Objetivos del curso
 
-- Aprender a usar MAREA
+- Aprender a usar MAREA y el marco teórico propuesto
 - No es un curso detallado de evaluación de RM o acciones de manejo
+- MAREA no es la solución a todos los males
 
 ## Vista previa de MAREA
 
 [MAREA](turfeffect.shinyapps.io)
 
-## Esquema del curso
+## Esquema del curso {.smaller}
 
 - Historia de la evaluación de RM (~ 30 min)
 - Objetivos e indicadores (~ 30 min)
 - Datos y formato de datos (~ 40 min)
 
-- Comida (~ 90 min)
+- **Comida** (~ 90 min)
 
 - Análisis (~ 75 min)
 - Uso de MAREA (~ 60 min)
@@ -62,11 +63,16 @@ knitr::opts_chunk$set(echo = FALSE)
     - Ejercicios
 - Interpretación de resultados (~ 20 min)
 - Resumen (~ 15 min)
+- Descansos de 5 - 10 min entre bloques
+- Tiempo estimado (~ 6.5 hrs) con participaciones
 
 ## Generalidades
 
 - Participaciones bienvenidas
 - Entre más preguntas mejor
+- Interrupciones ordenadas en cualquier momento
+
+# [Bloque 1](./bloque1.html)
 
 
 

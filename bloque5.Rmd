@@ -143,13 +143,3 @@ read.csv("../AppDraft/MAREA/www/bio_fish.csv") %>%
 - Generar mapas
 - Opción a incluir otros indicadores
 
-
-
-
-
-
-
-
-
-
-

@@ -180,4 +180,8 @@ read.csv("./Tabs/B2/Objectives_Indicators.csv") %>%
 
 # ¿Qué otros indicadores?
 
-## Referencias
+## Referencias {.smaller}
+
+<div id="refs"></div>
+
+# [Bloque 3](./bloque3.html)

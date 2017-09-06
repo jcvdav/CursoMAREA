@@ -212,4 +212,8 @@ knitr::include_graphics("./Figs/B3/access2.PNG")
 knitr::include_graphics("./Figs/B3/xls2csv.png")
 ```
 
-## Refrencias
+## Referencias {.smaller}
+
+<div id="refs"></div>
+
+# [Bloque 4](./bloque4.html)
