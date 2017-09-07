@@ -32,6 +32,7 @@ Al concluir el curso, los participantes podrán realizar la evaluación de Reser
 Las preguntas y discusiones son bienvenidas a lo largo de todo el curso.
 
 **Recursos**
+
 - [Diapositivas](./intro.html)
 
 # Temario

@@ -39,10 +39,24 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Presentaciones
 
+## Historia de MAREA
+
+- MAREA : Aplicación para Evaluación de Reservas Marinas (Marine Reserve Evaluation App)
+- Uno de los productos de TURFeffect + COBI + Stanford + SFG + ASU
+- Objetivos fueron:
+    - Estandarizar la evaluación de RM en México ([Manual](https://www.researchgate.net/publication/317840836_Una_guia_para_evaluar_la_efectividad_de_las_zonas_de_no_pesca_en_Mexico))
+        - Objetivos
+        - Indicadores
+        - Análisis
+    - Hacer el trabajo accesible y replicable
+
 ## Objetivos del curso
 
-- Aprender a usar MAREA y el marco teórico propuesto
 - No es un curso detallado de evaluación de RM o acciones de manejo
+- Aprender a usar MAREA y el marco teórico propuesto
+- Qué hacer y qué no hacer
+
+
 - MAREA no es la solución a todos los males
 
 ## Vista previa de MAREA
@@ -64,7 +78,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - Interpretación de resultados (~ 20 min)
 - Resumen (~ 15 min)
 - Descansos de 5 - 10 min entre bloques
-- Tiempo estimado (~ 6.5 hrs) con participaciones
+- Tiempo estimado (~ 6.5 hrs)
 
 ## Generalidades
 
